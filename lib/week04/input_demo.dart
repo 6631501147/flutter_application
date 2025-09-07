@@ -7,28 +7,45 @@ class InputDemo extends StatefulWidget {
   State<InputDemo> createState() => _InputDemoState();
 }
 
-class _InputDemoState extends State<InputDemo>{
+class _InputDemoState extends State<InputDemo> {
+  //state variable
   String message = "";
+  TextEditingController tcName = TextEditingController();
+  //functions
+  void updateText() {
+    setState(() {
+      message = tcName.text;
+    });
+  }
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Input Demo"),
-     
-      ),
+      appBar: AppBar(title: Text("Input Demo")),
       body: Column(
         children: [
-          TextField(
-           onChanged: (String txt){
-            //debugPrint(txt);
-            setState((){
-              message = txt;
-            });
-           } 
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: InputDecoration(border: OutlineInputBorder(),
+              labelText: 'Enter your name',
+              suffixIcon: IconButton(
+                onPressed: tcName.clear,
+                
+                icon: Icon(Icons.clear),
+              )
+              ),
+              controller: tcName,
+            ),
           ),
+          ElevatedButton(
+            //onPressed: () => updateText(),
+            onPressed: updateText,
+         child: Text('ok')),
+         SizedBox(height: 16,),
           Text(message),
         ],
       ),
-      );
-    
+    );
   }
 }
