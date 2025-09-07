@@ -21,7 +21,7 @@ class _InputDemoState extends State<InputDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Input Demo")),
+      appBar: AppBar(title: Text("Input Demo", style: TextStyle(fontFamily: 'IndieFlower')), ),
       body: Column(
         children: [
           Padding(
@@ -43,7 +43,8 @@ class _InputDemoState extends State<InputDemo> {
             onPressed: updateText,
          child: Text('ok')),
          SizedBox(height: 16,),
-          Text(message),
+          Text(message,
+          style: TextStyle(fontFamily: 'IndieFlower', fontSize: 24),),
         ],
       ),
     );
