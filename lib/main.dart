@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 //import 'week06/imageer.dart';
 //import 'week06/baking.dart';
 //import 'week06/login.dart';
-import 'week06/timer.dart';
+import 'week06/test.dart';
 void main(){
   runApp(MaterialApp(
-  home: TimerDemo(),
+  home: RowDemo(),
   ),
   );
 }
